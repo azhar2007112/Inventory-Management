@@ -78,30 +78,37 @@ Route::middleware(['auth', 'user-role:moderator'])->group(function() {
 
 
 
+// Route::middleware(['auth','user-role:admin'])->group(function()
+// {
+//     Route::get('/admin/dashboard',[DashboardController::class, 'adminHome'])->name('home.admin');
+// });
+
+
+
+
+
+// Route::middleware(['auth','user-role:admin'])->group(function()
+// {
+//     Route::get('/admin/list',[AdminController::class, 'list']);
+// });
+
+
+
+// Route::middleware(['auth','user-role:admin'])->group(function()
+// {
+//     Route::get('/admin/add',[AdminController::class, 'add']);
+// });
+
+
 Route::middleware(['auth','user-role:admin'])->group(function()
 {
+
     Route::get('/admin/dashboard',[DashboardController::class, 'adminHome'])->name('home.admin');
-});
-
-
-
-
-
-Route::middleware(['auth','user-role:admin'])->group(function()
-{
     Route::get('/admin/list',[AdminController::class, 'list']);
-});
+ Route::get('/admin/add',[AdminController::class, 'add']);
 
 
 
-Route::middleware(['auth','user-role:admin'])->group(function()
-{
-    Route::get('/admin/add',[AdminController::class, 'add']);
-});
-
-
-Route::middleware(['auth','user-role:admin'])->group(function()
-{
     Route::post('/admin/add',[AdminController::class, 'insert']);
 
 Route::get('/admin/edit/{id}',[AdminController::class, 'edit']);

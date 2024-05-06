@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+
 class AdminMiddleware 
 {
     /**
@@ -15,13 +16,14 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle($request, Closure $next, $role) {
-        if (!Auth::check() || Auth::user()->role !== $role) {
-            // Optionally, provide a more specific error message or redirect.
-            return redirect('login');
+    public function handle(Request $request, Closure $next, $role)
+    {
+
+        if ($request->user() && Auth::user()->role == $role) {
+            return $next($request);
         }
-    
-        return $next($request);
+
+        abort(403, 'Unauthorized action.');
     }
 
     

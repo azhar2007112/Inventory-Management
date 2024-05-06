@@ -15,6 +15,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
+        
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
@@ -43,6 +44,13 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+  
+            'admin' => [
+                'auth',
+                'user-role:admin',
+            ],
+            // other groups...
+ 
     ];
 
 
@@ -59,10 +67,14 @@ class Kernel extends HttpKernel
 
     protected $routeMiddleware = [
         // Other middleware...
+        
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'auth' => \App\Http\Middleware\Authenticate::class
 ,
-'user-role' => \App\Http\Middleware\AdminMiddleware::class ,  
+
+    // other middleware
+    'user-role' => \App\Http\Middleware\AdminMiddleware::class,
+
 
 'back' => \App\Http\Middleware\backMiddleware::class    ];
     
