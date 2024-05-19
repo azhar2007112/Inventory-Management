@@ -121,7 +121,7 @@
                           <td>  <a href="{{url($getCartProduct->slug)}}">
                             {{$getCartProduct->title}}
                           </a></td>
-                          <td>$ {{$getCartProduct->price * $cart->quantity,2}}</td>
+                          <td>$ {{$getCartProduct->price * $cart->quantity}}</td>
                         </tr>
 @endforeach
                       

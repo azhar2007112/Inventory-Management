@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ColorModel;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class ColorController extends Controller
 {
@@ -33,7 +34,7 @@ class ColorController extends Controller
         $color->code = trim($request->code);
         $color->status =trim($request->status);
       
-        $color->created_by=Auth::user()->id;
+        $color->created_by=FacadesAuth::user()->id;
         $color->save();
         Alert::success('Success', 'Color successfully created');
         return redirect('admin/color/list');
