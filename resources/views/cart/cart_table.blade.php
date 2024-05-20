@@ -32,6 +32,7 @@
                                 @csrf
                                 <button type="submit" class="btn btn-outline-primary btn-icon-text"><i class="icon-printer btn-icon-prepend"></i>Invoice</button>
                             </form>
+                            <a class="btn btn-outline-success btn-icon-text" href={{url('/checkout/'.$item->id.'/'.$item->quantity)}}>Pay</a>
                         </td>
                     </tr>
                 @endforeach

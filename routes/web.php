@@ -42,7 +42,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('back');
 
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
-Route::get('/checkout/{id}', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+Route::get('/checkout/{id}/{count}', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
 
 Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
 Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);

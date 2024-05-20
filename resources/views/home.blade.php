@@ -83,6 +83,8 @@
       @else
       <a href="{{url('user/dashboard')}}" class="get-started-btn scrollto">Dashboard</a>
       @endif
+
+      <a href="{{url('/cart')}}" class="get-started-btn scrollto">Cart<i class="bx bx-cart"></i></a>
       @else
       <a href="{{url('login')}}" class="get-started-btn scrollto">Login</a>
       <a href="{{url('register')}}" class="get-started-btn scrollto">Register</a>
@@ -323,7 +325,6 @@
                   
                 </div>
 
-                <a href="{{url('checkout/'.$item->id)}}">Checkout</a>
               </div>
             </div>
           </div>
