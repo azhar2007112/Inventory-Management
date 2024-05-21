@@ -9,7 +9,11 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-12">
+<<<<<<< HEAD
           <h1>Add New Salary</h1>
+=======
+          <h1>Add New Product</h1>
+>>>>>>> 9fbd52e3ad4bad1ad768df922af6167118b13392
         </div>
        
       </div>
