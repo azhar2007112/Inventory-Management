@@ -7,10 +7,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Mail;
-use Str;
+use Illuminate\Support\Str;
 use App\Mail\RegisterMail;
 use App\Mail\ForgotPasswordMail;
+use Illuminate\Support\Facades\Mail;
+
 class AuthController extends Controller
 {
     public function index()
@@ -162,7 +163,7 @@ return redirect()->back();
     else
     {
         Alert::error('Error', 'Email not Found !');
-        return redirect->back();
+        return redirect()->back();
 
     }
 }

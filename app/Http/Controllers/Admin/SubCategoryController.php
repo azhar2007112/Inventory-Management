@@ -5,6 +5,7 @@ use App\Models\SubCategoryModel;
 use App\Models\CategoryModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SubCategoryController extends Controller

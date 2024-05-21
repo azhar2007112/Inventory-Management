@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use RealRashid\SweetAlert\Facades\Alert;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BrandModel;
 use Auth;
-
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -42,7 +43,7 @@ class BrandController extends Controller
         $brand->meta_title =trim($request->meta_title);
         $brand->meta_description = trim($request->meta_description);
         $brand->meta_keywords = trim($request->meta_keywords);
-        $brand->created_by=Auth::user()->id;
+        $brand->created_by=FacadesAuth::user()->id;
         $brand->save();
         Alert::success('Success', 'Brand successfully created');
         return redirect('admin/brand/list');

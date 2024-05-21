@@ -7,6 +7,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+
 class CategoryController extends Controller
 {
     //
@@ -36,7 +38,7 @@ class CategoryController extends Controller
     $userc->meta_title =trim($request->meta_title);
     $userc->meta_description = trim($request->meta_description);
     $userc->meta_keywords = trim($request->meta_keywords);
-    $userc->created_by=Auth::user()->id;
+    $userc->created_by=FacadesAuth::user()->id;
     $userc->save();
     Alert::success('Success', 'Category successfully created');
     return redirect('admin/category/list');

@@ -13,7 +13,7 @@
 
     {{-- <link rel="stylesheet" href="/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css"> --}}
 
-    <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/assetsh/dist/css/adminlte.min.css">
 
 </head>
 
@@ -24,7 +24,7 @@
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="/" class="h1"><b>Andis</b> Dev</a>
+                <a href="/" class="h1"><b>Inventory</b> </a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Register a new membership</p>
@@ -103,9 +103,9 @@
     </div>
 
 
-    <script src="/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="/assetsh/plugins/jquery/jquery.min.js"></script>
 
-    <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assetsh/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     {{-- <script src="/assets/dist/js/adminlte.min.js"></script> --}}
 

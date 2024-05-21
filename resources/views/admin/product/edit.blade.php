@@ -154,38 +154,7 @@ $checked = 'checked';
   
 
   <div class="row">
-    <div class="col-md-12">
-  
-      <div class="form-group">
-        <label >Color<span style="color:red">*</span></label>
-      <div>
-        <table class="table"> 
-      <thead>
-        <tr>
-      <th>
-        Name</th>  
-        <th>Price (Tk)</th>
-        <th>Action</th>  
-        </tr> 
-      </thead> 
-      <tbody id="AppendSize">
-        <tr>
-          <td>
-            <input type="text" placeholder="Name" name="" class="form-control">
-          </td>
-          <td>
-            <input type="text" placeholder="Price" name="" class="form-control">
-          </td>
-          <td>
-            <button type="button" class="btn btn-primary btn-sm AddSize">Add</button>
-           
-          </td>
-        </tr>
-      </tbody>
-        </table> 
-     </div>
-      </div>
-    </div>
+   
     
   </div>
 
@@ -199,7 +168,7 @@ $checked = 'checked';
 
     <div class="form-group">
       <label >Image<span style="color:red">*</span></label>
-      <input type="file" name="image[]" class="form-control" style="padding: 5px;" multiple accept="image/*">
+      <input type="file" name="photo" class="form-control" style="padding: 5px;" >
     </div>
   </div>
 </div>

@@ -1,270 +1,160 @@
 
 
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
-  <!-- Left navbar links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-    </li>
-    <li class="nav-item d-none d-sm-inline-block">
-      <a href="index3.html" class="nav-link">Home</a>
-    </li>
-    <li class="nav-item d-none d-sm-inline-block">
-      <a href="#" class="nav-link">Contact</a>
-    </li>
-  </ul>
 
-  <!-- Right navbar links -->
-  <ul class="navbar-nav ml-auto">
-    <!-- Navbar Search -->
+  <!-- partial:partials/_sidebar.html -->
+  <nav class="sidebar sidebar-offcanvas col-lg-12 col-12 p-0" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item navbar-brand-mini-wrapper">
+        <a class="nav-link navbar-brand brand-logo-mini" href="{{url('index.html')}}"><img src="{{url('assets/images/logo-mini.svg')}}" alt="logo" /></a>
+      </li>
+      <li class="nav-item nav-profile">
+
+      </li>
+      @if(Auth::user()->role==2)
+      <li class="nav-item">
+        <a href="{{url('/admin/dashboard')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
+          <span class="menu-title"><p>Dashboard</p></span>
+          <i class="icon-screen-desktop menu-icon"></i>
+        </a>
+      </li>
+      @endif
+      @if(Auth::user()->role==1)
+      <li class="nav-item">
+        <a href="{{url('/moderator/dashboard')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
+          <span class="menu-title"><p>Dashboard</p></span>
+          <i class="icon-screen-desktop menu-icon"></i>
+        </a>
+      </li>
+      @endif
+      @if(Auth::user()->role==0)
+      <li class="nav-item">
+        <a href="{{url('/user/dashboard')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
+          <span class="menu-title"><p>Dashboard</p></span>
+          <i class="icon-screen-desktop menu-icon"></i>
+        </a>
+      </li>
+      @endif
+
+
+      <li class="nav-item">
+        <a href="{{url('/cart')}}" class="nav-link @if(Request::segment(2) == 'pos') active @endif">
+          <span class="menu-title"><p>Pos</p></span>
+          <i class="icon-screen-desktop menu-icon"></i>
+        </a>
+      </li>
+
+
+    @if(Auth::user()->role=="admin")
+
     <li class="nav-item">
-      <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-        <i class="fas fa-search"></i>
+      <a href="{{url('/admin/category/list')}}" class="nav-link @if(Request::segment(2) == 'category') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Category</p></span>
       </a>
-      <div class="navbar-search-block">
-        <form class="form-inline">
-          <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-navbar" type="submit">
-                <i class="fas fa-search"></i>
-              </button>
-              <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
+    </li>
+    <li class="nav-item">
+      <a href="{{url('/admin/subcategory/list')}}" class="nav-link @if(Request::segment(2) == 'sub_category') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Sub Category</p></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{url('/admin/brand/list')}}" class="nav-link @if(Request::segment(2) == 'brand') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Brand</p></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{url('/admin/color/list')}}" class="nav-link @if(Request::segment(2) == 'color') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Color</p></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{url('/admin/product/list')}}" class="nav-link @if(Request::segment(2) == 'Product') active @endif">
+        <i class="nav-icon fas fa-product-hunt"></i>
+        <span class="menu-title"><p>Product</p></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{url('/admin/contact/list')}}" class="nav-link @if(Request::segment(2) == 'contact') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <p><span class="menu-title">Contact</span></p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{url('/admin/employee/list')}}" class="nav-link @if(Request::segment(2) == 'employee') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Employee</p></span>
+      </a>
+    </li>
+
+
+    <li class="nav-item">
+      <a href="{{url('/admin/customer/list')}}" class="nav-link @if(Request::segment(2) == 'customer') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Customer</p></span>
+      </a>
+    </li>
+
+
+    <li class="nav-item">
+      <a href="{{url('/admin/salary/list')}}" class="nav-link @if(Request::segment(2) == 'salary') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Salary</p></span>
+      </a>
+    </li>
+
+
+
+    <li class="nav-item">
+      <a href="{{url('/admin/expense/list')}}" class="nav-link @if(Request::segment(2) == 'expense') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Expense</p></span>
+      </a>
+    </li>
+
+
+    <li class="nav-item">
+      <a href="{{url('/admin/settings/list')}}" class="nav-link @if(Request::segment(2) == 'settings') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Settings</p></span>
+      </a>
+    </li>
+
+    @endif
+
+
+    @if(Auth::user()->role =="moderator")
+    {{-- For Moderator --}}<li class="nav-item">
+      <a href="{{url('/admin/employee/list')}}" class="nav-link @if(Request::segment(2) == 'employee') active @endif">
+        <i class="nav-icon fas fa-list-alt"></i>
+        <span class="menu-title"><p>Employee</p></span>
+      </a>
+    </li>
+
+
+    @endif
+
+    
+    @if(Auth::user()->role=="user")
+
+    {{-- For user --}}
+
+    @endif
+
+
+      <li class="nav-item nav-category">
+        <form method="POST" action="{{ url('/logout') }}">
+          @csrf
+          <li class="nav-item">
+            <button type="submit" class="nav-link" style="background: none; border: none; padding-left: 2; margin: 0; text-align:left">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="menu-title"><p>Logout</p></span>
+            </button>
+          </li>
         </form>
-      </div>
-    </li>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- Messages Dropdown Menu -->
-    <li class="nav-item dropdown">
-      <a class="nav-link" data-toggle="dropdown" href="#">
-        <i class="far fa-comments"></i>
-        <span class="badge badge-danger navbar-badge">3</span>
-      </a>
-      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <a href="#" class="dropdown-item">
-          <!-- Message Start -->
-          <div class="media">
-            <img src="/assetsh/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-            <div class="media-body">
-              <h3 class="dropdown-item-title">
-                Brad Diesel
-                <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-              </h3>
-              <p class="text-sm">Call me whenever you can...</p>
-              <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-            </div>
-          </div>
-          <!-- Message End -->
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <!-- Message Start -->
-          <div class="media">
-            <img src="/assetsh/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-            <div class="media-body">
-              <h3 class="dropdown-item-title">
-                John Pierce
-                <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-              </h3>
-              <p class="text-sm">I got your message bro</p>
-              <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-            </div>
-          </div>
-          <!-- Message End -->
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <!-- Message Start -->
-          <div class="media">
-            <img src="/assetsh/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-            <div class="media-body">
-              <h3 class="dropdown-item-title">
-                Nora Silvester
-                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-              </h3>
-              <p class="text-sm">The subject goes here</p>
-              <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-            </div>
-          </div>
-          <!-- Message End -->
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-      </div>
-    </li>
-    <!-- Notifications Dropdown Menu -->
-    <li class="nav-item dropdown">
-      <a class="nav-link" data-toggle="dropdown" href="#">
-        <i class="far fa-bell"></i>
-        <span class="badge badge-warning navbar-badge">15</span>
-      </a>
-      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <span class="dropdown-item dropdown-header">15 Notifications</span>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <i class="fas fa-envelope mr-2"></i> 4 new messages
-          <span class="float-right text-muted text-sm">3 mins</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <i class="fas fa-users mr-2"></i> 8 friend requests
-          <span class="float-right text-muted text-sm">12 hours</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <i class="fas fa-file mr-2"></i> 3 new reports
-          <span class="float-right text-muted text-sm">2 days</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-        <i class="fas fa-expand-arrows-alt"></i>
-      </a>
-    </li>
-    {{-- <li class="nav-item">
-      <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-        <i class="fas fa-th-large"></i>
-      </a>
-    </li> --}}
-  </ul>
-</nav>
-
-
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-  <!-- Brand Logo -->
-  <a href="dashboard" class="brand-link" style="text-align: center;">
-    <img src="/assetsh/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Harvest Of Heart</span>
-  </a>
-
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
-        <img src="/assetsh/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-      </div>
-      <div class="info">
-        <a href="#" class="d-block">{{Auth::user()->name}}</a>
-      </div>
-    </div>
-
-    <!-- SidebarSearch Form -->
-    <div class="form-inline">
-      <div class="input-group" data-widget="sidebar-search">
-        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-sidebar">
-            <i class="fas fa-search fa-fw"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sidebar Menu -->
-    <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
-             with font-awesome or any other icon font library -->
-             <li class="nav-item">
-              <a href="{{url('/admin/dashboard')}}"  class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                  Dashboard    
-                 
-                </p>
-              </a>
-            </li>
-
-
-            <li class="nav-item">
-              <a href="{{url('/admin/list')}}"  class="nav-link  @if(Request::segment(2) == 'dashboard') @endif">
-                <i class="nav-icon fas fa-user-alt"></i>
-                <p>
-       {{Auth::user()->name}}
-         <br>
-              
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="{{url('/admin/category/list')}}" class="nav-link @if(Request::segment(2) == 'category') active @endif">
-                <i class="nav-icon fas fa-list-alt"></i>
-                <p>
-               Category 
-                 
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="{{url('/admin/subcategory/list')}}" class="nav-link @if(Request::segment(2) == 'sub_category') active @endif">
-                <i class="nav-icon fas fa-list-alt"></i>
-                <p>
-              Sub Category 
-                 
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="{{url('/admin/brand/list')}}" class="nav-link @if(Request::segment(2) == 'brand') active @endif">
-                <i class="nav-icon fas fa-list-alt"></i>
-                <p>
-                  Brand 
-                 
-                </p>
-              </a>
-            </li>
-
-
-
-            <li class="nav-item">
-              <a href="{{url('/admin/color/list')}}" class="nav-link @if(Request::segment(2) == 'color') active @endif">
-                <i class="nav-icon fas fa-list-alt"></i>
-                <p>
-                  Color 
-                 
-                </p>
-              </a>
-            </li>
-
-
-
-            <li class="nav-item">
-              <a href="{{url('/admin/product/list')}}" class="nav-link @if(Request::segment(2) == 'Product') active @endif">
-                <i class="nav-icon fas fa-product-hunt"></i>
-                <p>
-                 Product   
-                 
-                </p>
-              </a>
-            </li>
-       
-   
-
-        <li class="nav-item">
-          <form method="POST" action="{{ url('/logout') }}">
-            @csrf 
-          <button type="submit" class="nav-link" style="background: none; border: none; padding-left: 2; margin: 0; text-align:left">
-            <i class="fas fa-sign-out-alt"></i>
-            <p>Logout</p>
-          </button>
-        </form>
-        </li>
-
-   
-      </ul>
-    </nav>
-    <!-- /.sidebar-menu -->
-  </div>
-  <!-- /.sidebar -->
-</aside>

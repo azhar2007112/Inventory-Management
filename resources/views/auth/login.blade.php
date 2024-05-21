@@ -21,7 +21,7 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Harvest</b> Of Heart</a>
+    <a href="../../index2.html"><b>Inventory</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -59,6 +59,9 @@
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
+          <p class="mb-0">
+            <a href="/register" class="text-center">Register a new membership</a>
+        </p>
           <!-- /.col -->
         </div>
       </form>
@@ -67,7 +70,7 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a href="{{url('forgot-password')}}" class="text-center">forgot Your Password</a>
       </p>
       
     </div>
