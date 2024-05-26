@@ -49,6 +49,7 @@ class ExpenseController extends Controller
         return view('admin.expense.edit',$data);
     }
     
+    
     public function update($id,Request $request)
     {
     

@@ -14,7 +14,7 @@ class ContactModel extends Model
     static public function getRecord()
     {
         return self::select('contacts.*','users.name as created_by_name')
-        ->join('users','users.id','=','contacts.created_by')
+       
         ->where('contacts.is_delete','=',0)
     
         ->orderBy('contacts.id','desc')
@@ -29,7 +29,7 @@ class ContactModel extends Model
         return self::select('contacts.*')
         ->join('users','users.id','=','contacts.created_by')
         ->where('contacts.is_delete','=',0)
-        ->where('contacts.status','=',0)
+      
     
         ->orderBy('contacts.name','asc')
         ->get();

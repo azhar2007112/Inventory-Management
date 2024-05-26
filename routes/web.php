@@ -33,7 +33,7 @@ use App\Http\Controllers\SslCommerzPaymentController;
 |
 */
 //route login
-Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::get('/login', [AuthController::class, 'index'])->name('login');///same link a
 //->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate']);
 Route::get('/register', [AuthController::class, 'register']);

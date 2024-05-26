@@ -28,7 +28,7 @@ class AuthController extends Controller
     $this->validate($request,[
             'email' => 'required',
             'password' => 'required'
-          //  'is_delete' => 'required'
+          
         ]);
 
 
