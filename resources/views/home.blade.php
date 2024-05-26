@@ -536,7 +536,8 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{{url('/admin/contact/add')}}" method="post" role="form" class="form">
+              @csrf
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -546,17 +547,17 @@
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="number" class="form-control" name="w" id="phone" placeholder="phone" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <input type="text" class="form-control" name="status" id="phone" placeholder="status" required>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="description" rows="5" placeholder="Description" required></textarea>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center">
+                <input type="submit" value="Submit"/>
+              </div>
             </form>
 
           </div>
@@ -613,13 +614,6 @@
             </ul>
           </div>
   
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4 style="color: #343a40;">Our Inventory</h4>
-            <p style="color: #6c757d;">Subscribe to our Inv. to receive updates and offers.</p>
-            <form action="" method="post">
-              <input type="email" name="email" style="color: #072b4e;"><input type="submit" value="Subscribe" style="background-color: #343a40; color: #fff; border: none;">
-            </form>
-          </div>
   
         </div>
       </div>

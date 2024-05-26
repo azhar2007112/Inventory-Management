@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Expense;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -40,8 +42,9 @@ class DashboardController extends Controller
     {
     
         $responseIndex = $this->index($request);
+        $monthlyExpenses = Expense::all();
     
-    return view('dashboard.dashboard',$responseIndex,["msg"=>"I am a Admin role"]);
+    return view('dashboard.dashboard',$responseIndex,["msg"=>"I am a Admin role",'monthlyExpenses'=>$monthlyExpenses]);
     
     }
     

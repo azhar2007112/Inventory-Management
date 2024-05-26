@@ -168,7 +168,7 @@ Route::middleware(['auth', 'user-role:admin'])->group(function () {
     Route::post('/admin/get_sub_category', [SubCategoryController::class, 'get_sub_category']);
 
 
-
+   
 
     Route::get('/admin/product/list', [ProductController::class, 'list']);
     Route::get('/admin/product/add', [ProductController::class, 'add']);

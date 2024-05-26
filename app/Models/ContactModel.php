@@ -13,7 +13,7 @@ class ContactModel extends Model
     
     static public function getRecord()
     {
-        return self::select('contacts.*','users.name as created_by_name')
+        return self::select('contacts.*','contacts.name as created_by_name')
        
         ->where('contacts.is_delete','=',0)
     

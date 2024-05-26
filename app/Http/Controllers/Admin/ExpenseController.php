@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ExpenseModel;
-use Auth;
-use Illuminate\Support\Facades\Auth as FacadesAuth;
-use RealRashid\SweetAlert\Facades\Alert;
-
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ExpenseController extends Controller
 {
@@ -37,18 +34,18 @@ class ExpenseController extends Controller
         $brand->date =trim($request->date);
        
        
-        $brand->created_by=FacadesAuth::user()->id;
+        $brand->created_by=Auth::user()->id;
         $brand->save();
       
         return redirect('admin/expense/list');
     }
+    
     public function edit($id)
     {
        $data['getRecord']= ExpenseModel::getSingle($id);
         $data['header_title']='Edit expense';
         return view('admin.expense.edit',$data);
     }
-    
     
     public function update($id,Request $request)
     {
@@ -95,9 +92,15 @@ class ExpenseController extends Controller
         $data['searchPerformed'] = true;  
         return view('admin.expense.list', $data);
     }
-    
-    
 
+    public function getMonthlyExpenses()
+    {
+        // Fetch monthly expenses data
+        $monthlyExpenses = DB::table('expenses')
+            ->select(DB::raw('MONTH(date) as month'), DB::raw('SUM(amount) as total_expense'))
+            ->groupBy(DB::raw('MONTH(date)'))
+            ->get();
 
-
+        return response()->json($monthlyExpenses);
+    }
 }
